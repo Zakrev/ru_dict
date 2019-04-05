@@ -1,2 +1,2 @@
 # ru_dict
-Russion SQLite dictionary
+Russian SQLite dictionary
