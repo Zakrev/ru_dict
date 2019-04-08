@@ -50,10 +50,10 @@ class sqll_dict:
                 curs.execute("INSERT "
                              "INTO words (слово) "
                              "VALUES ('{}');".format(word))
-                curs.execute("SELECT count(*) "
-                             "FROM words;")
-                result = curs.fetchone()
-                print("word: добавлено ({}): {}".format(result[0], word))
+                #curs.execute("SELECT count(*) "
+                #             "FROM words;")
+                #result = curs.fetchone()
+                #print("word: добавлено ({}): {}".format(result[0], word))
                 curs.execute("SELECT id "
                              "FROM words "
                              "WHERE слово = '{}';".format(word))
@@ -96,12 +96,12 @@ class sqll_dict:
                              "INTO {} (слово) "
                              "VALUES ({});".format(self.__now_table,
                                                    self.__now_word_id))
-                curs.execute("SELECT count(*) "
-                             "FROM {};".format(self.__now_table))
-                result = curs.fetchone()
-                print("{}: добавлено ({}): {}".format(self.__now_table,
-                                                      result[0],
-                                                      self.__now_word))
+                #curs.execute("SELECT count(*) "
+                #             "FROM {};".format(self.__now_table))
+                #result = curs.fetchone()
+                #print("{}: добавлено ({}): {}".format(self.__now_table,
+                #                                      result[0],
+                #                                      self.__now_word))
                 curs.execute("SELECT id "
                              "FROM {} "
                              "WHERE слово = {};".format(self.__now_table,
@@ -163,22 +163,22 @@ class sqll_dict:
             if line_id == None:
                 if not self.create_empty:
                     raise Exception("{}: {}: не удалось выбрать "
-                                "из группы слов".format(self.__now_table,
-                                                        self.__now_word))
+                                    "из группы слов".format(self.__now_table,
+                                                            self.__now_word))
 
                 curs.execute("INSERT "
-                                 "INTO {} (слово) "
-                                 "VALUES ({});".format(self.__now_table,
-                                                       self.__now_word_id))
-                curs.execute("SELECT count(*) "
-                                "FROM {};".format(self.__now_table))
-                result = curs.fetchone()
-                print("{}: добавлено ({}): {}".format(self.__now_table,
-                                                        result[0],
-                                                        self.__now_word))
+                             "INTO {} (слово) "
+                             "VALUES ({});".format(self.__now_table,
+                                                   self.__now_word_id))
+                #curs.execute("SELECT count(*) "
+                #             "FROM {};".format(self.__now_table))
+                #result = curs.fetchone()
+                #print("{}: добавлено ({}): {}".format(self.__now_table,
+                #                                      result[0],
+                #                                      self.__now_word))
                 curs.execute("SELECT id "
-                                "FROM {} "
-                                "WHERE слово = {};".format(self.__now_table,
+                             "FROM {} "
+                             "WHERE слово = {};".format(self.__now_table,
                                                         self.__now_word_id))
                 return int(curs.fetchall()[-1][0])
 
